@@ -1,1 +1,2 @@
-# RoloToken-Backend
+# RoloToken-backend
+Node / Firebase / Express
