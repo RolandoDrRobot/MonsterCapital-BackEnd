@@ -10,10 +10,14 @@ firebase.initializeApp({
 const database = firebase.firestore();
 
 // Here we can validate If the collection users exists
-const usersDatabase = database.collection('users'); 
+const usersDatabase = database.collection('users');
 
-const createUser = async (email: string, password: string, name: string, ethAddress: string) => {
-  let createUserStatus = { status: 'no created' };
+const createUser = async (email: string, password: string, name: string) => {
+  let createUserStatus = { 
+    status: 'no created',
+    name: '',
+    email: ''
+  };
   try {
     const newUser = await usersDatabase.doc(email).get();
     if (!newUser.exists) {
@@ -21,9 +25,10 @@ const createUser = async (email: string, password: string, name: string, ethAddr
           userEmail: email,
           userPassword: password,
           userName: name,
-          userEthAddress: ethAddress,
         }); 
         createUserStatus.status = 'created';
+        createUserStatus.email = email;
+        createUserStatus.name = name;
     } else { createUserStatus.status = 'The user already exist!'; }
   }
   catch (e) { 
@@ -33,16 +38,34 @@ const createUser = async (email: string, password: string, name: string, ethAddr
 }
 
 const login = async (email: string, password: string) => {
-  let loginStatus = { status: 'no logged' };
+  let loginInfo = { 
+    status: 'no logged',
+    name: '',
+    email: ''
+  };
   try {
     const user = await usersDatabase.doc(email).get();
-    user.exists && password === user._fieldsProto.userPassword.stringValue
-    ? loginStatus.status = 'granted' 
-    : loginStatus.status = 'The password or user does not match';
+    if (user.exists && password === user._fieldsProto.userPassword.stringValue) {
+      loginInfo.status = 'granted';
+      loginInfo.email = user._fieldsProto.userEmail.stringValue;
+      loginInfo.name = user._fieldsProto.userName.stringValue;
+    } else {
+      loginInfo.status = 'The password or user does not match';
+    }
   } catch (e) {
-    loginStatus.status = 'There was an error with the request: ' + e;
+    loginInfo.status = 'There was an error with the request: ' + e;
   }
-  return loginStatus;
+  return loginInfo;
 }
 
-export { createUser, login };
+const news = async () => {
+  try {
+    const snapshot = await firebase.firestore().collection('news').get();
+    return snapshot.docs;
+  }
+  catch (e) {
+    console.log(e);
+  }
+}
+
+export { createUser, login, news };
