@@ -1,5 +1,5 @@
-# 💸📗 CoraToken-backend
-Table of contents
+# 🪙⚡️ CoraToken-backend
+📗 Table of contents
 - What is this
 - Features
 - How to install
