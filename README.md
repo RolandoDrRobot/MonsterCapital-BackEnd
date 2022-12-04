@@ -8,7 +8,8 @@
 
 
 ## 🪙 What is this
-- This is the backend of the coin CORA, you can see how It looks [here](https://github.com/RolandoDrRobot/CoraToken-FrontEnd)
+- This is the backend of the coin CORA
+- [Here](https://github.com/RolandoDrRobot/CoraToken-FrontEnd) you can see how It looks
 - [Here](https://github.com/RolandoDrRobot/CoraToken-Contracts) are the smart contracts for this project
 - It works as an API service and cover the following services for the app 👇
 
