@@ -1,4 +1,4 @@
-# 🪙⚡️ CoraToken-backend
+# 🪙⚡️ CoraToken-BackEnd
 # 📗 Table of contents
 1. [What is this](#-what-is-this)
 2. [Features](#%EF%B8%8F-features)
@@ -9,6 +9,7 @@
 
 ## 🪙 What is this
 - This is the backend of the coin CORA, you can see how It looks [here](https://github.com/RolandoDrRobot/CoraToken-FrontEnd)
+- [Here](https://github.com/RolandoDrRobot/CoraToken-Contracts) are the smart contracts for this project
 - It works as an API service and cover the following services for the app 👇
 
 ## ⚡️ Features
