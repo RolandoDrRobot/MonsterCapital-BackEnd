@@ -7,7 +7,7 @@
 4. [Improvements Ideas](#-improvements-ideas)
 
 
-## 🪙 What is this
+## ⚡️ What is this
 - This is the backend of Monster Capital App
 - This is currently not working, the app is not using any of the services here, we are using only smart contracts
 - It uses Firebase for storing the users and news
